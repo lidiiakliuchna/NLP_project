@@ -61,10 +61,6 @@ def n_grams(a, n):
 lang2char_ngrams_freqs = defaultdict(Counter)
 table = str.maketrans({ch: None for ch in punctuation})
 
-# Generate character n-grams from a string
-def n_grams(a, n):
-    return [a[i:i+n] for i in range(len(a)-n+1)]
-
 for lang, lang_sentences in zip(['Russian', 'English', 'German'], [cleaned_russian_sentences, cleaned_english_sentences, cleaned_german_sentences]):
     for text in lang_sentences:
         char_ngrams = n_grams(text.lower().translate(table), 3)
