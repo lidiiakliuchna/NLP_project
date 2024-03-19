@@ -54,8 +54,7 @@ cleaned_german_sentences = [clean_text(sentence) for sentence in german_sentence
 
 # Creating n-grams from a string
 def n_grams(a, n):
-    ngrams = [a[i:i+n].translate(table).strip(' ') for i in range(0, len(a)+1-n)]
-    return set(ngrams)
+    return [a[i:i+n] for i in range(len(a)-n+1)]
 
 # Calculate character n-gram frequencies
 lang2char_ngrams_freqs = defaultdict(Counter)
